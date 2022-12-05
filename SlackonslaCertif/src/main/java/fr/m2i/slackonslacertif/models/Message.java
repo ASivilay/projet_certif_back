@@ -36,7 +36,7 @@ public class Message implements Serializable{
 		@Column(nullable = false, length = 255, name ="content")
 		private String content;
 		
-		@Column(nullable = false, name ="datetime")
+		@Column(nullable = false, name ="date_time")
 		private Date datetime;
 	
 		@ManyToOne(fetch=FetchType.LAZY)
