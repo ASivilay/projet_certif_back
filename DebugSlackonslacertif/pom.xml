@@ -9,32 +9,23 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>fr.m2i</groupId>
-	<artifactId>SlackonslaCertif</artifactId>
+	<artifactId>Slackonslacertif</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>SlackonslaCertif</name>
-	<description>Certif m2i app message type Slack</description>
+	<name>DebugSlackonslacertif</name>
+	<description>Debug de l&apos;appli</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
-	  <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
-
-        
-
-        <dependency>
-
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-
-            <artifactId>jackson-dataformat-xml</artifactId>
-
-           
-
-        </dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>		
+		</dependency>		
+		<dependency>
+		    <groupId>com.fasterxml.jackson.dataformat</groupId>
+		    <artifactId>jackson-dataformat-xml</artifactId>		   
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
