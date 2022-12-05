@@ -7,9 +7,9 @@ CREATE TABLE message (
 	id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(15) NOT NULL,
     content TEXT NOT NULL,
-    message_date DATETIME DEFAULT NOW(),
-    idCanal INT NOT NULL,
-    CONSTRAINT fk_idCanal FOREIGN KEY (idCanal) REFERENCES canal(id)
+    message_date DATETIME DEFAULT NOW() NOT NULL,
+    canal_id INT NOT NULL,
+    CONSTRAINT fk_canal_id FOREIGN KEY (canal_id) REFERENCES canal(id)
 );
 
 
