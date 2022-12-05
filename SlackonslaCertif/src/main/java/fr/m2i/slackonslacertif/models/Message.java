@@ -18,7 +18,6 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="message")
-
 public class Message implements Serializable{
 
 		/**
@@ -39,7 +38,7 @@ public class Message implements Serializable{
 		@Column(nullable = false, name ="date_time")
 		private Date datetime;
 	
-		@ManyToOne(fetch=FetchType.LAZY)
+		@ManyToOne(fetch=FetchType.EAGER)
 		private Channel channel;
 
 }

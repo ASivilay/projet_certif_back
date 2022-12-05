@@ -18,7 +18,6 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="channel")
-
 public class Channel implements Serializable{
 
 		/**
