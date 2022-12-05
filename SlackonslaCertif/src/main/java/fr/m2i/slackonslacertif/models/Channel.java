@@ -33,8 +33,8 @@ public class Channel implements Serializable{
 		@Column(nullable = false, length = 20, name ="name")
 		private String name;
 			
-		@Column(nullable = true, name ="general")
-		private boolean general;
+		@Column(nullable = false, name ="modification")
+		private boolean  modification = true;
 				
 		@OneToMany(mappedBy = "channel", cascade=CascadeType.ALL)
 		private List<Message> messages = new ArrayList<>();

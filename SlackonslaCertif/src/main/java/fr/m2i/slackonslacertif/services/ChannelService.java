@@ -22,14 +22,25 @@ public class ChannelService {
 		}
 		
 		public void saveChannel(Channel channel) {
-			
+		
+		if(csr.existsById(channel.getId())) {
 			csr.save(channel);
 		}
 		
-		public void deleteChannel(Channel channel) {
-			
-			csr.delete(channel);
+		else if (channel.isModification()==true) {
+			csr.save(channel);
 		}
+
+	}
+
+		public void deleteChannel(Channel channel) {	
+			
+			if(channel.isModification()==true) {
+				csr.deleteById(channel.getId());
+			}
+		}
+		
+
 		
 		public void StringChannel(Channel channel) {
 			
