@@ -1,6 +1,7 @@
 package fr.m2i.slackonslacertif.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ public class MessageService {
 		MessageRepository msr;
 		
 		
-		public List<Message> getAll(){
+		public Iterable<Message> getAll(){
 			
 			return msr.findAll();
 		}
@@ -31,6 +32,10 @@ public class MessageService {
 				msr.delete(message);
 			}
 		
+		public Optional<Message> getMessageById(Long id) {
+			
+			return msr.findById(id);
+		}
 
 		
 		public void StringMessage(Message message) {
