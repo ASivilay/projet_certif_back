@@ -28,7 +28,7 @@ public class ChannelRestController {
 	
 	// READ ALL
 	@GetMapping(
-			path="/canalgeneral/listecanal",								
+			path="/canalgeneral/listecanaux",								
 			produces={"application/json"} 						
 	)
 	public Iterable<Channel> getChannels() { 
@@ -40,7 +40,7 @@ public class ChannelRestController {
 	}
 	
 	//READ ONE
-	@GetMapping(path="/canalgeneral/listecanal/trouver{id}",
+	@GetMapping(path="/canalgeneral/listecanaux/trouver{id}",
 			    produces={"application/json"} 	
     )
 	@ResponseStatus(code=HttpStatus.FOUND)
@@ -55,7 +55,7 @@ public class ChannelRestController {
 	
 	//CREATE et UPDATE
 	@PostMapping(
-			path="/canalgeneral/listecanal/post",								
+			path="/canalgeneral/listecanaux/post",								
 			consumes={"application/json"} 						
 	)
 	@ResponseStatus(code=HttpStatus.CREATED)	
@@ -67,7 +67,7 @@ public class ChannelRestController {
 		
 	//DELETE
 	@DeleteMapping(
-			path="/canalgeneral/listecanal/delete"							
+			path="/canalgeneral/listecanaux/delete"							
 	)
 	@ResponseStatus(code=HttpStatus.CREATED)	
 	public void deleteChannel(@RequestParam Long id) { 

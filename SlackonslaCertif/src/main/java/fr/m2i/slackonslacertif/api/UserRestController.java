@@ -16,64 +16,66 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.m2i.slackonslacertif.models.Message;
+import fr.m2i.slackonslacertif.models.User;
 import fr.m2i.slackonslacertif.services.MessageService;
+import fr.m2i.slackonslacertif.services.UserService;
 
 
 @RestController
 @RequestMapping(path="/api")
-public class MessageRestController {
+public class UserRestController {
 
 	@Autowired
-	MessageService messageService;
+	UserService userService;
 	
 	// READ ALL
 	@GetMapping(
-			path="/message/listemessages",								
+			path="/user/listeusers",								
 			produces={"application/json"} 						
 	)
-	public Iterable<Message> getMessages() { 
+	public Iterable<User> getUsers() { 
 	
-		Iterable<Message> messages = messageService.getAll();
+		Iterable<User> users = userService.getAll();
 			
-		return messages;
+		return users;
 		
 	}
 	
 	//READ ONE
-	@GetMapping(path="/message/listemessages/trouver{id}")
-	public Message getMessage(@RequestParam Long id) {
+	@GetMapping(path="/user/listeusers/trouver{id}")
+	public User getUser(@RequestParam Long id) {
 		
-		Optional<Message> optMessage = messageService.getMessageById(id);
-		Message message1 = optMessage.get();
+		Optional<User> optUser = userService.getUserById(id);
+		User user1 = optUser.get();
 		
-		return message1;
+		return user1;
 			
 	}
 	
 	//CREATE et UPDATE
 	@PostMapping(
-			path="/message/listemessages/post",								
+			path="/user/listeusers/post",								
 			consumes={"application/json"} 						
 	)
 	@ResponseStatus(code=HttpStatus.CREATED)	
-	public void saveMessage(@RequestBody Message message) { 
+	public void saveUser(@RequestBody User user) { 
 	
-		messageService.saveMessage(message);
+		userService.saveUser(user);
 		
 		
 	}
 		
 	//DELETE
 	@DeleteMapping(
-			path="/message/listemessages/delete"							
+			path="/user/listeusers/delete"							
 	)
 	@ResponseStatus(code=HttpStatus.CREATED)	
-	public void deleteMessage(@RequestParam Long id) { 
+	public void deleteUser(@RequestParam Long id) { 
 	
-		Optional<Message> optMessage = messageService.getMessageById(id);
-		Message message = optMessage.get();
+		Optional<User> optUser = userService.getUserById(id);
+		User user = optUser.get();
 		
-		messageService.deleteMessage(message);
+		userService.deleteUser(user);
 	}
 	
 	

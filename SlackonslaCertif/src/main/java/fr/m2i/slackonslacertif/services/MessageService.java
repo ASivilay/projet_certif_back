@@ -25,12 +25,12 @@ public class MessageService {
 		public void saveMessage(Message message) {
 			msr.save(message);
 
-	}
+		}
 
-		public void deleteMessage(Message message) {	
+		public void deleteMessage(Message message) {
 			
-				msr.delete(message);
-			}
+			msr.deleteById(message.getId());
+		}
 		
 		public Optional<Message> getMessageById(Long id) {
 			
@@ -44,11 +44,11 @@ public class MessageService {
 		}
 		
 		public String setMessageAjout (Message message) {
-			return "Vous avez bien ajouté "+ message.getContent()+ " de " + message.getUsername() + "." ;
+			return "Vous avez bien ajouté "+ message.getContent()+ " de " + message.getUser() + "." ;
 		}
 
 		public String setMessageDelete(Message message) {
-			return "Vous avez bien supprimé "+ message.getContent() + " de " + message.getUsername() + "." ;
+			return "Vous avez bien supprimé "+ message.getContent() + " de " + message.getUser() + "." ;
 		}
 
 

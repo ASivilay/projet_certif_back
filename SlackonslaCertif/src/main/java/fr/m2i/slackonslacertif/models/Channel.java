@@ -10,6 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -43,8 +46,15 @@ public class Channel implements Serializable{
 		@JsonIncludeProperties(value = {"username","content"})
 		public List<Message> messages = new ArrayList<>();
 		
-		
-		
+		@ManyToMany(cascade=CascadeType.ALL)
+		@JoinTable(
+				name="user_channel",
+				joinColumns = {@JoinColumn(name="channel_id")},
+				inverseJoinColumns = {@JoinColumn(name="user_id") }
+				)
+		@JsonIncludeProperties(value = {"username"})
+		public List<User> users = new ArrayList<>();
+				
 		public void addMessage (Message message) {
 			messages.add(message);
 		}
@@ -52,5 +62,13 @@ public class Channel implements Serializable{
 		public void removeMessage (Message message) {
 			messages.remove(message);
 		}
+		
+	//	public void addUser (User user) {
+	//		users.add(user);
+	//	}
+			
+	//	public void removeUser (User user) {
+	//		users.remove(user);
+	//	}
 		
 }
