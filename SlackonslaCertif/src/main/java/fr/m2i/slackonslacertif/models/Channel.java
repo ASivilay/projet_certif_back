@@ -13,6 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.Data;
 
 @Data
@@ -36,6 +40,7 @@ public class Channel implements Serializable{
 		private boolean  modification = true;
 				
 		@OneToMany(mappedBy = "channel", cascade=CascadeType.ALL)
-		private List<Message> messages = new ArrayList<>();
+		@JsonIncludeProperties(value = {"username","content"})
+		public List<Message> messages = new ArrayList<>();
 		
 }
