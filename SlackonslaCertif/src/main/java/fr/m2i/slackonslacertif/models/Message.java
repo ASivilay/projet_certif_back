@@ -13,6 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
+
 import lombok.Data;
 
 @Data
@@ -39,6 +42,7 @@ public class Message implements Serializable{
 		private Date datetime;
 	
 		@ManyToOne(fetch=FetchType.EAGER)
+		@JsonIncludeProperties(value = {"id","name"})
 		private Channel channel;
 
 }
