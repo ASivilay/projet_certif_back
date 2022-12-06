@@ -1,17 +1,21 @@
 #nom bdd = slackonscertif
 
+DROP TABLE IF EXISTS message;
+DROP TABLE IF EXISTS user_channel;
 DROP TABLE IF EXISTS channel;
+DROP TABLE IF EXISTS user;
 
 CREATE TABLE channel (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     modification BOOLEAN DEFAULT TRUE
 );
-
-DROP TABLE IF EXISTS message;
-
+CREATE TABLE user (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(15) NOT NULL
+);
 CREATE TABLE message (
-	id INT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT NOT NULL,
     content TEXT NOT NULL,
     date_time DATETIME DEFAULT NOW() NOT NULL,
@@ -19,24 +23,12 @@ CREATE TABLE message (
     CONSTRAINT fk_channel_id FOREIGN KEY (channel_id) REFERENCES channel(id),
     CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user(id)
 );
-
-DROP TABLE IF EXISTS user;
-
-CREATE TABLE user (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(15) NOT NULL
-);
-
-DROP TABLE IF EXISTS user_channel;
-
 CREATE TABLE user_channel (
-	channel_id INT NOT NULL,
+    channel_id INT NOT NULL,
     user_id INT NOT NULL,
-    CONSTRAINT fk_channel_id FOREIGN KEY (channel_id) REFERENCES channel(id),
-    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user(id)
+    CONSTRAINT fk_channel2_id FOREIGN KEY (channel_id) REFERENCES channel(id),
+    CONSTRAINT fk_user2_id FOREIGN KEY (user_id) REFERENCES user(id)
 );
-
-
 
 INSERT INTO channel(name, modification) VALUES ('général', false), ('m2i', true), ('infotel', true);
 
