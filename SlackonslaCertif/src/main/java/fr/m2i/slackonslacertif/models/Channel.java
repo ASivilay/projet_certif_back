@@ -43,4 +43,14 @@ public class Channel implements Serializable{
 		@JsonIncludeProperties(value = {"username","content"})
 		public List<Message> messages = new ArrayList<>();
 		
+		
+		
+		public void addMessage (Message message) {
+			messages.add(message);
+		}
+			
+		public void removeMessage (Message message) {
+			messages.remove(message);
+		}
+		
 }
