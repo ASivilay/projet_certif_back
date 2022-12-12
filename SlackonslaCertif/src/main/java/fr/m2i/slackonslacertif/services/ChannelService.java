@@ -1,6 +1,5 @@
 package fr.m2i.slackonslacertif.services;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
