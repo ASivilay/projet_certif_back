@@ -44,7 +44,6 @@ public class ChannelRestController {
 	@GetMapping(path="/canalgeneral/listecanaux/trouver{id}",
 			    produces={"application/json"} 	
     )
-	@ResponseStatus(code=HttpStatus.FOUND)
 	public Channel getChannel(@RequestParam Long id) {
 		
 		Optional<Channel> optChannel = channelService.getChannelById(id);
@@ -65,6 +64,7 @@ public class ChannelRestController {
 	}
 		
 	//DELETE
+
 	@DeleteMapping(
 			path="/canalgeneral/listecanaux/delete"							
 	)

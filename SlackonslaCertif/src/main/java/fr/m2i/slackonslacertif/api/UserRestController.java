@@ -21,7 +21,7 @@ import fr.m2i.slackonslacertif.models.User;
 import fr.m2i.slackonslacertif.services.MessageService;
 import fr.m2i.slackonslacertif.services.UserService;
 
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(path="/api")
 public class UserRestController {

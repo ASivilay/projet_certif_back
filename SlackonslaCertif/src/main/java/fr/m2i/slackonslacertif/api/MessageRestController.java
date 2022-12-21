@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.m2i.slackonslacertif.models.Message;
 import fr.m2i.slackonslacertif.services.MessageService;
 
-@CrossOrigin
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(path="/api")
 public class MessageRestController {
@@ -28,7 +28,6 @@ public class MessageRestController {
 	MessageService messageService;
 	
 	// READ ALL
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	@GetMapping(
 			path="/message/listemessages",								
 			produces={"application/json"} 						
@@ -42,7 +41,6 @@ public class MessageRestController {
 	}
 	
 	//READ ONE
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	@GetMapping(path="/message/listemessages/trouver{id}")
 	public Message getMessage(@RequestParam Long id) {
 		
@@ -54,7 +52,6 @@ public class MessageRestController {
 	}
 	
 	//CREATE et UPDATE
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	@PostMapping(
 			path="/message/listemessages/post",								
 			consumes={"application/json"} 						
@@ -68,7 +65,6 @@ public class MessageRestController {
 	}
 		
 	//DELETE
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	@DeleteMapping(
 			path="/message/listemessages/delete"							
 	)
