@@ -1,6 +1,5 @@
 package fr.m2i.slackonslacertif.services;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +30,12 @@ public class ChannelService {
 		
 		if(csr.existsById(channel.getId()) && channel.isModification()==true) {
 			csr.save(channel);
-			return "Vous avez bien ajouté "+ channel.getName() + ".";
+			return "Vous avez bien modifié "+ channel.getName() + ".";
 		}
 		
-		else
-			return "Vous ne pouvez pas ajouter "+ channel.getName() + ".";
+		else 
+			csr.save(channel);
+			return "Vous avez bien ajouté"+ channel.getName() + ".";
 	}
 
 		public String deleteChannel(Channel channel) {	

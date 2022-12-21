@@ -16,9 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Data;
 
@@ -27,9 +25,7 @@ import lombok.Data;
 @Table(name="channel")
 public class Channel implements Serializable{
 
-		/**
-		 * 
-		 */
+		
 		private static final long serialVersionUID = 1L;
 
 		@Id
@@ -63,12 +59,12 @@ public class Channel implements Serializable{
 			messages.remove(message);
 		}
 		
-	//	public void addUser (User user) {
-	//		users.add(user);
-	//	}
+		public void addUser (User user) {
+			users.add(user);
+		}
 			
-	//	public void removeUser (User user) {
-	//		users.remove(user);
-	//	}
+		public void removeUser (User user) {
+			users.remove(user);
+		}
 		
 }
