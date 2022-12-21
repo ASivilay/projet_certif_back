@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +26,7 @@ public class ChannelRestController {
 	ChannelService channelService;
 	
 	// READ ALL
+	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	@GetMapping(
 			path="/canalgeneral/listecanaux",								
 			produces={"application/json"} 						
@@ -37,6 +39,7 @@ public class ChannelRestController {
 	}
 	
 	//READ ONE
+	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	@GetMapping(path="/canalgeneral/listecanaux/trouver{id}",
 			    produces={"application/json"} 	
     )
@@ -50,6 +53,7 @@ public class ChannelRestController {
 	}
 	
 	//CREATE et UPDATE
+	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	@PostMapping(
 			path="/canalgeneral/listecanaux/post",								
 			consumes={"application/json"} 						
@@ -61,6 +65,7 @@ public class ChannelRestController {
 	}
 		
 	//DELETE
+	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	@DeleteMapping(
 			path="/canalgeneral/listecanaux/delete"							
 	)
