@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.m2i.slackonslacertif.models.Message;
 import fr.m2i.slackonslacertif.services.MessageService;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping(path="/api")
 public class MessageRestController {

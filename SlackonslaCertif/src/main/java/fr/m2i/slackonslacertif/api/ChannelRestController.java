@@ -17,16 +17,18 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.m2i.slackonslacertif.models.Channel;
 import fr.m2i.slackonslacertif.services.ChannelService;
 
-
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(path="/api")
+
 public class ChannelRestController {
 
 	@Autowired
 	ChannelService channelService;
 	
+
 	// READ ALL
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+	
 	@GetMapping(
 			path="/canalgeneral/listecanaux",								
 			produces={"application/json"} 						
@@ -39,7 +41,6 @@ public class ChannelRestController {
 	}
 	
 	//READ ONE
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	@GetMapping(path="/canalgeneral/listecanaux/trouver{id}",
 			    produces={"application/json"} 	
     )
@@ -53,7 +54,6 @@ public class ChannelRestController {
 	}
 	
 	//CREATE et UPDATE
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	@PostMapping(
 			path="/canalgeneral/listecanaux/post",								
 			consumes={"application/json"} 						
@@ -65,7 +65,6 @@ public class ChannelRestController {
 	}
 		
 	//DELETE
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	@DeleteMapping(
 			path="/canalgeneral/listecanaux/delete"							
 	)
