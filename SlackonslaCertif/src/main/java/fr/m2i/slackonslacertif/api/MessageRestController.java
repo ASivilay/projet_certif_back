@@ -56,7 +56,7 @@ public class MessageRestController {
 			path="/message/listemessages/post",								
 			consumes={"application/json"} 						
 	)
-	@ResponseStatus(code=HttpStatus.CREATED)	
+	@ResponseStatus(code=HttpStatus.OK)	
 	public void saveMessage(@RequestBody Message message) { 
 	
 		messageService.saveMessage(message);

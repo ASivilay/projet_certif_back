@@ -32,6 +32,9 @@ public class Message implements Serializable{
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private long id;
 		
+		@Column(nullable = false, length = 255, name ="username")
+		private String username;
+		
 		@ManyToOne(fetch=FetchType.EAGER)
 		@JsonIncludeProperties(value = {"id","username"})
 		private User user;
