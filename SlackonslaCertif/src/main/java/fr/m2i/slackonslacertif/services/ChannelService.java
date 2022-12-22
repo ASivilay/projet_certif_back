@@ -28,7 +28,7 @@ public class ChannelService {
 		
 		public String saveChannel(Channel channel) {
 		
-		if(csr.existsById(channel.getId()) && channel.isModification()==true) {
+		if(channel.isModification()==true) {
 			csr.save(channel);
 			return "Vous avez bien modifié "+ channel.getName() + ".";
 		}
@@ -37,6 +37,18 @@ public class ChannelService {
 			csr.save(channel);
 			return "Vous avez bien ajouté"+ channel.getName() + ".";
 	}
+		
+		public String updateChannel(Channel channel) {
+			
+			if(csr.existsById(channel.getId()) && channel.isModification()==true) {
+				csr.save(channel);
+				return "Vous avez bien modifié "+ channel.getName() + ".";
+			}
+			
+			else 
+				csr.save(channel);
+				return "Vous avez bien ajouté"+ channel.getName() + ".";
+		}
 
 		public String deleteChannel(Channel channel) {	
 			
