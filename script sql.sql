@@ -17,7 +17,7 @@ CREATE TABLE message (
     content TEXT NOT NULL,
     date_time DATETIME DEFAULT NOW() NOT NULL,
     channel_id INT NOT NULL,
-    CONSTRAINT fk_channel_id FOREIGN KEY (channel_id) REFERENCES channel(id),
+    CONSTRAINT fk_channel_id FOREIGN KEY (channel_id) REFERENCES channel(id)
 );
 
 
