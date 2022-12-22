@@ -42,16 +42,6 @@ public class MessageService {
 			
 			msr.toString();
 		}
-		
-		public String setMessageAjout (Message message) {
-			return "Vous avez bien ajouté "+ message.getContent()+ " de " + message.getUser() + "." ;
-		}
-
-		public String setMessageDelete(Message message) {
-			return "Vous avez bien supprimé "+ message.getContent() + " de " + message.getUser() + "." ;
-		}
-
-
 
 }
 

@@ -33,12 +33,6 @@ public class User implements Serializable{
 	@Column(nullable = false, length = 20, name ="username")
 	private String username;
 	
-	@ManyToMany( mappedBy="users", cascade=CascadeType.ALL )
-	@JsonIncludeProperties(value = {"id", "name"})
-	private List<Channel> channels = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "user", cascade=CascadeType.ALL)
-	@JsonIncludeProperties(value = {"content"})
-	public List<Message> messages = new ArrayList<>();
 	
 }

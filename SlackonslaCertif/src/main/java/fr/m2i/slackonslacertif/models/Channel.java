@@ -41,10 +41,11 @@ public class Channel implements Serializable{
 		private boolean  modification = true;
 				
 		@OneToMany(mappedBy = "channel", cascade=CascadeType.ALL)
-		@JsonIncludeProperties(value = {"user","content", "datetime"})
+		@JsonIncludeProperties(value = {"username","content", "datetime"})
 		@JsonIgnoreProperties(value = {"id"})
 		public List<Message> messages = new ArrayList<>();
 		
+		/*
 		@ManyToMany(cascade=CascadeType.ALL)
 		@JoinTable(
 				name="user_channel",
@@ -53,6 +54,8 @@ public class Channel implements Serializable{
 				)
 		@JsonIncludeProperties(value = {"username"})
 		public List<User> users = new ArrayList<>();
+		
+		*/
 				
 		public void addMessage (Message message) {
 			messages.add(message);
@@ -61,7 +64,8 @@ public class Channel implements Serializable{
 		public void removeMessage (Message message) {
 			messages.remove(message);
 		}
-		
+	
+		/*
 		public void addUser (User user) {
 			users.add(user);
 		}
@@ -69,5 +73,5 @@ public class Channel implements Serializable{
 		public void removeUser (User user) {
 			users.remove(user);
 		}
-		
+		*/
 }

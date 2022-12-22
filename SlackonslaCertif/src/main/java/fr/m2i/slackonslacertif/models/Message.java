@@ -35,9 +35,12 @@ public class Message implements Serializable{
 		@Column(nullable = false, length = 255, name ="username")
 		private String username;
 		
+		/*
 		@ManyToOne(fetch=FetchType.EAGER)
 		@JsonIncludeProperties(value = {"id","username"})
 		private User user;
+		
+		*/
 		
 		@Column(nullable = false, length = 255, name ="content")
 		private String content;
