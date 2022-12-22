@@ -16,6 +16,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 
 import lombok.Data;
@@ -39,7 +41,8 @@ public class Channel implements Serializable{
 		private boolean  modification = true;
 				
 		@OneToMany(mappedBy = "channel", cascade=CascadeType.ALL)
-		@JsonIncludeProperties(value = {"username","content"})
+		@JsonIncludeProperties(value = {"user","content", "datetime"})
+		@JsonIgnoreProperties(value = {"id"})
 		public List<Message> messages = new ArrayList<>();
 		
 		@ManyToMany(cascade=CascadeType.ALL)
